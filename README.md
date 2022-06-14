@@ -83,9 +83,9 @@ example_importance = attr_method.attribute_loader(device, train_subloader, test_
 ## 3. Reproducing the paper results
 
 ### MNIST experiments
-Run the following script
+In the `experiments` folder, run the following script
 ```shell
-python -m experiments.mnist --name experiment_name
+python -m mnist --name experiment_name
 ```
 where experiment_name can take the following values:
 
@@ -103,7 +103,7 @@ The resulting plots and data are saved [here](results/mnist).
 ### ECG5000 experiments
 Run the following script
 ```shell
-python -m experiments.ecg5000 --name experiment_name
+python -m ecg5000 --name experiment_name
 ```
 where experiment_name can take the following values:
 
@@ -119,7 +119,7 @@ The resulting plots and data are saved [here](results/ecg5000).
 ### CIFAR10 experiments
 Run the following script
 ```shell
-python -m experiments.cifar10
+python -m cifar10
 ```
 The experiment can be selected by changing the experiment_name
 parameter in [this file](simclr_config.yaml).
@@ -136,7 +136,7 @@ The resulting plots and data are saved [here](results/cifar10).
 ### dSprites experiment
 Run the following script
 ```shell
-python -m experiments.dsprites
+python -m dsprites
 ```
 The experiment needs several hours to run since several VAEs are trained.
 The resulting plots and data are saved [here](results/dsprites).
