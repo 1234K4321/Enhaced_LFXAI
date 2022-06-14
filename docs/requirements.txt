@@ -1,3 +1,17 @@
+torch
+torchvision
+captum
+hydra-core
+numpy
+pandas
+scikit-image
+scikit-learn
+scipy
+seaborn
+tabulate
+tqdm
+wget
+matplotlib
 myst-parser
 sphinx-rtd-theme
 m2r2
