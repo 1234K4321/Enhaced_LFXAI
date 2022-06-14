@@ -2,7 +2,8 @@ import abc
 
 import torch
 from torch.nn import functional as F
-from utils.math import (
+
+from lfxai.utils.math import (
     log_density_gaussian,
     log_importance_weight_matrix,
     matrix_log_density_gaussian,

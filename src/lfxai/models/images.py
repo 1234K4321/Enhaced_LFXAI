@@ -8,15 +8,16 @@ import hydra
 import numpy as np
 import torch
 import torch.nn.functional as F
-from models.losses import BaseVAELoss
 from omegaconf import DictConfig
 from torch import nn
 from torch.optim.lr_scheduler import LambdaLR
 from torch.utils.data import DataLoader
 from torchvision import transforms
 from tqdm import tqdm
-from utils.datasets import CIFAR10Pair
-from utils.metrics import AverageMeter
+
+from lfxai.models.losses import BaseVAELoss
+from lfxai.utils.datasets import CIFAR10Pair
+from lfxai.utils.metrics import AverageMeter
 
 """
  These models are adapted from

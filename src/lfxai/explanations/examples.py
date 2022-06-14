@@ -10,7 +10,8 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from tqdm.contrib.itertools import product
-from utils.influence import hessian_vector_product, stack_torch_tensors
+
+from lfxai.utils.influence import hessian_vector_product, stack_torch_tensors
 
 
 class ExampleBasedExplainer(ABC):
