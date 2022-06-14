@@ -18,7 +18,7 @@ When the packages are installed, you are ready to explain unsupervised models.
 
 ## 2. Toy example
 
-Bellow, you can find a toy demonstration where we compute label-free feature and example importance 
+Bellow, you can find a toy demonstration where we compute label-free feature and example importance
 with a MNIST autoencoder. The relevant code can be found in the folder
 [explanations](explanations).
 
@@ -50,14 +50,14 @@ test_loader = DataLoader(test_dataset, batch_size=100, shuffle=False)
 # Get a model
 encoder = EncoderMnist(encoded_space_dim=10)
 decoder = DecoderMnist(encoded_space_dim=10)
-model = AutoEncoderMnist(encoder, decoder, latent_dim=10, input_pert=Identity()) 
+model = AutoEncoderMnist(encoder, decoder, latent_dim=10, input_pert=Identity())
 model.to(device)
 
 # Get label-free feature importance
 baseline = torch.zeros((1, 1, 28, 28)).to(device) # black image as baseline
-attr_method = IntegratedGradients(model) 
-feature_importance = attribute_auxiliary(encoder, test_loader, 
-                                         device, attr_method, baseline) 
+attr_method = IntegratedGradients(model)
+feature_importance = attribute_auxiliary(encoder, test_loader,
+                                         device, attr_method, baseline)
 
 # Get label-free example importance
 train_subset = Subset(train_dataset, indices=list(range(500))) # Limit the number of training examples
@@ -68,10 +68,10 @@ example_importance = attr_method.attribute_loader(device, train_subloader, test_
 
 
 
-## 3. Reproducing the paper results 
+## 3. Reproducing the paper results
 
 ### MNIST experiments
-Run the following script  
+Run the following script
 ```shell
 python -m experiments.mnist --name experiment_name
 ```
@@ -89,7 +89,7 @@ where experiment_name can take the following values:
 The resulting plots and data are saved [here](results/mnist).
 
 ### ECG5000 experiments
-Run the following script  
+Run the following script
 ```shell
 python -m experiments.ecg5000 --name experiment_name
 ```
@@ -105,12 +105,12 @@ where experiment_name can take the following values:
 The resulting plots and data are saved [here](results/ecg5000).
 
 ### CIFAR10 experiments
-Run the following script  
+Run the following script
 ```shell
-python -m experiments.cifar10 
+python -m experiments.cifar10
 ```
-The experiment can be selected by changing the experiment_name 
-parameter in [this file](simclr_config.yaml). 
+The experiment can be selected by changing the experiment_name
+parameter in [this file](simclr_config.yaml).
 The parameter can take the following values:
 
 | experiment_name      | description                                                                  |
@@ -122,7 +122,7 @@ The parameter can take the following values:
 
 The resulting plots and data are saved [here](results/cifar10).
 ### dSprites experiment
-Run the following script  
+Run the following script
 ```shell
 python -m experiments.dsprites
 ```
