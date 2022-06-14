@@ -11,12 +11,20 @@ representations of unsupervised black-box models with the help of usual feature 
 For more details, please read our [ICML 2022 paper](https://arxiv.org/abs/2203.01928): 'Label-Free Explainability for Unsupervised Models'.
 
 ## 1. Installation
+From PyPI
+```bash
+pip install lfxai
+```
+
+From repository:
 1. Clone the repository
 2. Create a new virtual environment with Python 3.8
 3. Run the following command from the repository folder:
-    ```shell
-    pip install -r requirements.txt #install requirements
-    ```
+
+```shell
+pip install .
+```
+
 When the packages are installed, you are ready to explain unsupervised models.
 
 ## 2. Toy example
@@ -32,11 +40,12 @@ from torchvision.datasets import MNIST
 from torch.utils.data import DataLoader, Subset
 from torchvision import transforms
 from torch.nn import MSELoss
-from models.images import AutoEncoderMnist, EncoderMnist, DecoderMnist
-from models.pretext import Identity
 from captum.attr import IntegratedGradients
-from explanations.features import attribute_auxiliary
-from explanations.examples import SimplEx
+
+from lfxai.models.images import AutoEncoderMnist, EncoderMnist, DecoderMnist
+from lfxai.models.pretext import Identity
+from lfxai.explanations.features import attribute_auxiliary
+from lfxai.explanations.examples import SimplEx
 
 # Select torch device
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
