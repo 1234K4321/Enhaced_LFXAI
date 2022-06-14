@@ -12,9 +12,18 @@ import seaborn as sns
 import torch
 import torchvision
 from captum.attr import GradientShap, IntegratedGradients, Saliency
-from explanations.examples import InfluenceFunctions, NearestNeighbours, SimplEx, TracIn
-from explanations.features import attribute_auxiliary, attribute_individual_dim
-from models.images import (
+from scipy.stats import spearmanr
+from torch.utils.data import DataLoader, RandomSampler, Subset
+from torchvision import transforms
+
+from lfxai.explanations.examples import (
+    InfluenceFunctions,
+    NearestNeighbours,
+    SimplEx,
+    TracIn,
+)
+from lfxai.explanations.features import attribute_auxiliary, attribute_individual_dim
+from lfxai.models.images import (
     VAE,
     AutoEncoderMnist,
     ClassifierMnist,
@@ -23,14 +32,11 @@ from models.images import (
     EncoderBurgess,
     EncoderMnist,
 )
-from models.losses import BetaHLoss, BtcvaeLoss
-from models.pretext import Identity, Mask, RandomNoise
-from scipy.stats import spearmanr
-from torch.utils.data import DataLoader, RandomSampler, Subset
-from torchvision import transforms
-from utils.datasets import MaskedMNIST
-from utils.feature_attribution import generate_masks
-from utils.metrics import (
+from lfxai.models.losses import BetaHLoss, BtcvaeLoss
+from lfxai.models.pretext import Identity, Mask, RandomNoise
+from lfxai.utils.datasets import MaskedMNIST
+from lfxai.utils.feature_attribution import generate_masks
+from lfxai.utils.metrics import (
     compute_metrics,
     cos_saliency,
     count_activated_neurons,
@@ -39,7 +45,7 @@ from utils.metrics import (
     similarity_rates,
     spearman_saliency,
 )
-from utils.visualize import (
+from lfxai.utils.visualize import (
     correlation_latex_table,
     plot_pretext_saliencies,
     plot_pretext_top_example,

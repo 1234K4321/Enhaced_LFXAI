@@ -9,13 +9,19 @@ import pandas as pd
 import seaborn as sns
 import torch
 from captum.attr import GradientShap, IntegratedGradients, Saliency
-from explanations.examples import InfluenceFunctions, NearestNeighbours, SimplEx, TracIn
-from explanations.features import attribute_auxiliary
-from models.time_series import RecurrentAutoencoder
 from torch.utils.data import DataLoader, RandomSampler, Subset, random_split
-from utils.datasets import ECG5000
-from utils.feature_attribution import generate_tseries_masks
-from utils.metrics import similarity_rates
+
+from lfxai.explanations.examples import (
+    InfluenceFunctions,
+    NearestNeighbours,
+    SimplEx,
+    TracIn,
+)
+from lfxai.explanations.features import attribute_auxiliary
+from lfxai.models.time_series import RecurrentAutoencoder
+from lfxai.utils.datasets import ECG5000
+from lfxai.utils.feature_attribution import generate_tseries_masks
+from lfxai.utils.metrics import similarity_rates
 
 
 def consistency_feature_importance(

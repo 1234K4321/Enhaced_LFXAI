@@ -11,11 +11,12 @@ import pandas as pd
 import torch
 from captum.attr import GradientShap
 from explanations.features import attribute_individual_dim
-from models.images import VAE, DecoderBurgess, EncoderBurgess
-from models.losses import BetaHLoss, BtcvaeLoss
 from torch.utils.data import random_split
-from utils.datasets import DSprites
-from utils.metrics import (
+
+from lfxai.models.images import VAE, DecoderBurgess, EncoderBurgess
+from lfxai.models.losses import BetaHLoss, BtcvaeLoss
+from lfxai.utils.datasets import DSprites
+from lfxai.utils.metrics import (
     compute_metrics,
     cos_saliency,
     count_activated_neurons,
@@ -23,7 +24,7 @@ from utils.metrics import (
     pearson_saliency,
     spearman_saliency,
 )
-from utils.visualize import plot_vae_saliencies, vae_box_plots
+from lfxai.utils.visualize import plot_vae_saliencies, vae_box_plots
 
 
 def disvae_feature_importance(
