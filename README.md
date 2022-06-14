@@ -1,9 +1,9 @@
 # Label-Free XAI
 [![Tests](https://github.com/vanderschaarlab/Label-Free-XAI/actions/workflows/test.yml/badge.svg)](https://github.com/vanderschaarlab/Label-Free-XAI/actions/workflows/test.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.png)](https://opensource.org/licenses/MIT)
 [![Documentation Status](https://readthedocs.org/projects/lfxai/badge/?version=latest)](https://lfxai.readthedocs.io/en/latest/?badge=latest)
 
-![image](https://github.com/vanderschaarlab/Label-Free-XAI/blob/review/docs/illustration.png "Label-Free Explainability")
+![image](https://github.com/vanderschaarlab/Label-Free-XAI/raw/review/docs/illustration.png "Label-Free Explainability")
 
 Code Author: Jonathan Crabbé ([jc2133@cam.ac.uk](mailto:jc2133@cam.ac.uk))
 
