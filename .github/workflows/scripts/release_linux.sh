@@ -9,7 +9,7 @@ yum install llvm-toolset-7.0 python3 python3-devel -y
 
 # Python
 python3 -m pip install --upgrade pip
-python3 -m pip install setuptools wheel twine auditwheel
+python3 -m pip install --upgrade setuptools wheel twine auditwheel
 
 # Publish
 python3 -m pip wheel . -w dist/ --no-deps
