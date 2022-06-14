@@ -29,7 +29,8 @@ DATASETS = list(DATASETS_DICT.keys())
 
 class DisentangledDataset(Dataset, abc.ABC):
     """Base Class for disentangled VAE datasets.
-    Parameters
+
+    Parameters:
     ----------
     root : string
         Root directory of dataset.
@@ -79,7 +80,8 @@ class DSprites(DisentangledDataset):
     -----
     - Link : https://github.com/deepmind/dsprites-dataset/
     - hard coded metadata because issue with python 3 loading of python 2
-    Parameters
+
+    Parameters:
     ----------
     root : string
         Root directory of dataset.

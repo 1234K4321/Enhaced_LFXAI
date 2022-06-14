@@ -101,7 +101,7 @@ class AutoEncoderMnist(nn.Module):
     ):
         """
         Class which defines model and forward pass.
-        Parameters
+        Parameters:
         ----------
         img_size : tuple of ints
             Size of images. E.g. (1, 32, 32) or (3, 64, 64).
@@ -119,8 +119,9 @@ class AutoEncoderMnist(nn.Module):
     def forward(self, x):
         """
         Forward pass of model.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         x : torch.Tensor
             Batch of data. Shape (batch_size, n_chan, height, width)
         """
@@ -209,8 +210,9 @@ class AutoEncoderMnist(nn.Module):
     def save(self, directory: pathlib.Path) -> None:
         """
         Save a model and corresponding metadata.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         directory : pathlib.Path
             Path to the directory where to save the data.
         """
@@ -221,8 +223,9 @@ class AutoEncoderMnist(nn.Module):
 
     def load_metadata(self, directory: pathlib.Path) -> dict:
         """Load the metadata of a training directory.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         directory : pathlib.Path
             Path to folder where model is saved. For example './experiments/mnist'.
         """
@@ -234,8 +237,9 @@ class AutoEncoderMnist(nn.Module):
 
     def save_metadata(self, directory: pathlib.Path, **kwargs) -> None:
         """Load the metadata of a training directory.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         directory: string
             Path to folder where to save model. For example './experiments/mnist'.
         kwargs:
@@ -342,8 +346,9 @@ class ClassifierMnist(nn.Module):
     def save(self, directory: pathlib.Path) -> None:
         """
         Save a model and corresponding metadata.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         directory : pathlib.Path
             Path to the directory where to save the data.
         """
@@ -354,8 +359,9 @@ class ClassifierMnist(nn.Module):
 
     def load_metadata(self, directory: pathlib.Path) -> dict:
         """Load the metadata of a training directory.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         directory : pathlib.Path
             Path to folder where model is saved. For example './experiments/mnist'.
         """
@@ -367,8 +373,9 @@ class ClassifierMnist(nn.Module):
 
     def save_metadata(self, directory: pathlib.Path, **kwargs) -> None:
         """Load the metadata of a training directory.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         directory: string
             Path to folder where to save model. For example './experiments/mnist'.
         kwargs:
@@ -681,8 +688,9 @@ class BetaTcVaeMnist(nn.Module):
 class EncoderBurgess(nn.Module):
     def __init__(self, img_size, latent_dim=10):
         r"""Encoder of the model proposed in [1].
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         img_size : tuple of ints
             Size of images. E.g. (1, 32, 32) or (3, 64, 64).
         latent_dim : int
@@ -757,8 +765,9 @@ class EncoderBurgess(nn.Module):
 class DecoderBurgess(nn.Module):
     def __init__(self, img_size, latent_dim=10):
         r"""Decoder of the model proposed in [1].
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         img_size : tuple of ints
             Size of images. E.g. (1, 32, 32) or (3, 64, 64).
         latent_dim : int
@@ -840,8 +849,9 @@ class VAE(nn.Module):
     ):
         """
         Class which defines model and forward pass.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         img_size : tuple of ints
             Size of images. E.g. (1, 32, 32) or (3, 64, 64).
         """
@@ -857,7 +867,7 @@ class VAE(nn.Module):
     def reparameterize(self, mean, logvar):
         """
         Samples from a normal distribution using the reparameterization trick.
-        Parameters
+        Parameters:
         ----------
         mean : torch.Tensor
             Mean of the normal distribution. Shape (batch_size, latent_dim)
@@ -876,7 +886,8 @@ class VAE(nn.Module):
     def forward(self, x):
         """
         Forward pass of model.
-        Parameters
+
+        Parameters:
         ----------
         x : torch.Tensor
             Batch of data. Shape (batch_size, n_chan, height, width)
@@ -889,8 +900,9 @@ class VAE(nn.Module):
     def sample_latent(self, x):
         """
         Returns a sample from the latent distribution.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         x : torch.Tensor
             Batch of data. Shape (batch_size, n_chan, height, width)
         """
@@ -980,8 +992,9 @@ class VAE(nn.Module):
     def save(self, directory: pathlib.Path) -> None:
         """
         Save a model and corresponding metadata.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         directory : pathlib.Path
             Path to the directory where to save the data.
         """
@@ -992,8 +1005,9 @@ class VAE(nn.Module):
 
     def load_metadata(self, directory: pathlib.Path) -> dict:
         """Load the metadata of a training directory.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         directory : pathlib.Path
             Path to folder where model is saved. For example './experiments/mnist'.
         """
@@ -1005,8 +1019,9 @@ class VAE(nn.Module):
 
     def save_metadata(self, directory: pathlib.Path, **kwargs) -> None:
         """Load the metadata of a training directory.
-        Parameters
-        ----------
+
+        Parameters:
+        -----------
         directory: string
             Path to folder where to save model. For example './experiments/mnist'.
         kwargs:

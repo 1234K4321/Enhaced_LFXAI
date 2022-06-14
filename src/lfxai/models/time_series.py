@@ -162,7 +162,7 @@ class RecurrentAutoencoder(nn.Module):
     def save(self, directory: pathlib.Path) -> None:
         """
         Save a model and corresponding metadata.
-        Parameters
+        Parameters:
         ----------
         directory : pathlib.Path
             Path to the directory where to save the data.
@@ -320,7 +320,7 @@ class AutoencoderCNN(nn.Module):
     def save(self, directory: pathlib.Path) -> None:
         """
         Save a model and corresponding metadata.
-        Parameters
+        Parameters:
         ----------
         directory : pathlib.Path
             Path to the directory where to save the data.

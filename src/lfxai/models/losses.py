@@ -37,8 +37,9 @@ def get_loss_f(loss_name, **kwargs_parse):
 class BaseVAELoss(abc.ABC):
     """
     Base class for losses.
-    Parameters
-    ----------
+
+    Parameters:
+    ----------------
     record_loss_every: int, optional
         Every how many steps to recorsd the loss.
     rec_dist: {"bernoulli", "gaussian", "laplace"}, optional
@@ -66,7 +67,8 @@ class BaseVAELoss(abc.ABC):
     def __call__(self, data, recon_data, latent_dist, is_train, storer, **kwargs):
         """
         Calculates loss for a batch of data.
-        Parameters
+
+        Parameters:
         ----------
         data : torch.Tensor
             Input data (e.g. batch of images). Shape : (batch_size, n_chan,
@@ -99,7 +101,8 @@ class BaseVAELoss(abc.ABC):
 class BetaHLoss(BaseVAELoss):
     """
     Compute the Beta-VAE loss as in [1]
-    Parameters
+
+    Parameters:
     ----------
     beta : float, optional
         Weight of the kl divergence.
@@ -141,7 +144,8 @@ class BtcvaeLoss(BaseVAELoss):
     """
     Compute the decomposed KL loss with either minibatch weighted sampling or
     minibatch stratified sampling according to [1]
-    Parameters
+
+    Parameters:
     ----------
     n_data: int
         Number of data in the training set
@@ -220,7 +224,8 @@ def _reconstruction_loss(data, recon_data, distribution="bernoulli", storer=None
     """
     Calculates the per image reconstruction loss for a batch of data. I.e. negative
     log likelihood.
-    Parameters
+
+    Parameters:
     ----------
     data : torch.Tensor
         Input data (e.g. batch of images). Shape : (batch_size, n_chan,
@@ -275,7 +280,8 @@ def _kl_normal_loss(mean, logvar, storer=None):
     """
     Calculates the KL divergence between a normal distribution
     with diagonal covariance and a unit normal distribution.
-    Parameters
+
+    Parameters:
     ----------
     mean : torch.Tensor
         Mean of the normal distribution. Shape (batch_size, latent_dim) where
@@ -304,7 +310,8 @@ def _permute_dims(latent_sample):
     Implementation of Algorithm 1 in ref [1]. Randomly permutes the sample from
     q(z) (latent_dist) across the batch for each of the latent dimensions (mean
     and log_var).
-    Parameters
+
+    Parameters:
     ----------
     latent_sample: torch.Tensor
         sample from the latent dimension using the reparameterisation trick

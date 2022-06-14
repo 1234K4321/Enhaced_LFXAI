@@ -7,8 +7,9 @@ def matrix_log_density_gaussian(x, mu, logvar):
     """Calculates log density of a Gaussian for all combination of bacth pairs of
     `x` and `mu`. I.e. return tensor of shape `(batch_size, batch_size, dim)`
     instead of (batch_size, dim) in the usual log density.
-    Parameters
-    ----------
+
+    Parameters:
+    -----------
     x: torch.Tensor
         Value at which to compute the density. Shape: (batch_size, dim).
     mu: torch.Tensor
@@ -27,8 +28,9 @@ def matrix_log_density_gaussian(x, mu, logvar):
 
 def log_density_gaussian(x, mu, logvar):
     """Calculates log density of a Gaussian.
-    Parameters
-    ----------
+
+    Parameters:
+    -----------
     x: torch.Tensor or np.ndarray or float
         Value at which to compute the density.
     mu: torch.Tensor or np.ndarray or float
@@ -45,12 +47,13 @@ def log_density_gaussian(x, mu, logvar):
 def log_importance_weight_matrix(batch_size, dataset_size):
     """
     Calculates a log importance weight matrix
-    Parameters
-    ----------
+
+    Parameters:
+    -----------
     batch_size: int
         number of training images in the batch
     dataset_size: int
-    number of training images in the dataset
+        number of training images in the dataset
     """
     N = dataset_size
     M = batch_size - 1
