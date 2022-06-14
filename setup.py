@@ -13,7 +13,7 @@ def read(fname: str) -> str:
 
 
 def find_version() -> str:
-    version_file = read("lfxai/version.py")
+    version_file = read("src/lfxai/version.py")
     version_re = r"__version__ = \"(?P<version>.+)\""
     version_raw = re.match(version_re, version_file)
 
