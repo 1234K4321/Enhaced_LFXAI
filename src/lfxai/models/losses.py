@@ -39,7 +39,7 @@ class BaseVAELoss(abc.ABC):
     Base class for losses.
 
     Parameters:
-    ----------------
+    -----------
     record_loss_every: int, optional
         Every how many steps to recorsd the loss.
     rec_dist: {"bernoulli", "gaussian", "laplace"}, optional
@@ -65,11 +65,10 @@ class BaseVAELoss(abc.ABC):
 
     @abc.abstractmethod
     def __call__(self, data, recon_data, latent_dist, is_train, storer, **kwargs):
-        """
-        Calculates loss for a batch of data.
+        """Calculates loss for a batch of data.
 
         Parameters:
-        ----------
+        -----------
         data : torch.Tensor
             Input data (e.g. batch of images). Shape : (batch_size, n_chan,
             height, width).
@@ -103,13 +102,14 @@ class BetaHLoss(BaseVAELoss):
     Compute the Beta-VAE loss as in [1]
 
     Parameters:
-    ----------
+    -----------
     beta : float, optional
         Weight of the kl divergence.
     kwargs:
         Additional arguments for `BaseLoss`, e.g. rec_dist`.
-    References
-    ----------
+
+    References:
+    -----------
         [1] Higgins, Irina, et al. "beta-vae: Learning basic visual concepts with
         a constrained variational framework." (2016).
     """
@@ -146,7 +146,7 @@ class BtcvaeLoss(BaseVAELoss):
     minibatch stratified sampling according to [1]
 
     Parameters:
-    ----------
+    -----------
     n_data: int
         Number of data in the training set
     alpha : float
@@ -160,8 +160,9 @@ class BtcvaeLoss(BaseVAELoss):
         weighted sampling.
     kwargs:
         Additional arguments for `BaseLoss`, e.g. rec_dist`.
-    References
-    ----------
+
+    References:
+    -----------
        [1] Chen, Tian Qi, et al. "Isolating sources of disentanglement in variational
        autoencoders." Advances in Neural Information Processing Systems. 2018.
     """
@@ -226,7 +227,7 @@ def _reconstruction_loss(data, recon_data, distribution="bernoulli", storer=None
     log likelihood.
 
     Parameters:
-    ----------
+    -----------
     data : torch.Tensor
         Input data (e.g. batch of images). Shape : (batch_size, n_chan,
         height, width).
@@ -242,8 +243,9 @@ def _reconstruction_loss(data, recon_data, distribution="bernoulli", storer=None
         distribution corresponds to L1 solves partially the issue of MSE.
     storer : dict
         Dictionary in which to store important variables for vizualisation.
-    Returns
-    -------
+
+    Returns:
+    --------
     loss : torch.Tensor
         Per image cross entropy (i.e. normalized per batch but not pixel and
         channel)
@@ -277,12 +279,11 @@ def _reconstruction_loss(data, recon_data, distribution="bernoulli", storer=None
 
 
 def _kl_normal_loss(mean, logvar, storer=None):
-    """
-    Calculates the KL divergence between a normal distribution
+    """Calculates the KL divergence between a normal distribution
     with diagonal covariance and a unit normal distribution.
 
     Parameters:
-    ----------
+    -----------
     mean : torch.Tensor
         Mean of the normal distribution. Shape (batch_size, latent_dim) where
         D is dimension of distribution.
@@ -306,18 +307,18 @@ def _kl_normal_loss(mean, logvar, storer=None):
 
 
 def _permute_dims(latent_sample):
-    """
-    Implementation of Algorithm 1 in ref [1]. Randomly permutes the sample from
+    """Implementation of Algorithm 1 in ref [1]. Randomly permutes the sample from
     q(z) (latent_dist) across the batch for each of the latent dimensions (mean
     and log_var).
 
     Parameters:
-    ----------
+    -----------
     latent_sample: torch.Tensor
         sample from the latent dimension using the reparameterisation trick
         shape : (batch_size, latent_dim).
-    References
-    ----------
+
+    References:
+    -----------
         [1] Kim, Hyunjik, and Andriy Mnih. "Disentangling by factorising."
         arXiv preprint arXiv:1802.05983 (2018).
     """

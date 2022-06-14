@@ -146,3 +146,4 @@ results/*
 outputs/*
 tests/data/*
 tests/tmp/*
+generated

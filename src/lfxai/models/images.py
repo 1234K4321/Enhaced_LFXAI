@@ -99,8 +99,8 @@ class AutoEncoderMnist(nn.Module):
         name: str = "model",
         loss_f: callable = nn.MSELoss(),
     ):
-        """
-        Class which defines model and forward pass.
+        """Class which defines model and forward pass.
+
         Parameters:
         ----------
         img_size : tuple of ints
@@ -117,8 +117,7 @@ class AutoEncoderMnist(nn.Module):
         self.lr = None
 
     def forward(self, x):
-        """
-        Forward pass of model.
+        """Forward pass of model.
 
         Parameters:
         -----------
@@ -208,8 +207,7 @@ class AutoEncoderMnist(nn.Module):
                 break
 
     def save(self, directory: pathlib.Path) -> None:
-        """
-        Save a model and corresponding metadata.
+        """Save a model and corresponding metadata.
 
         Parameters:
         -----------
@@ -344,8 +342,7 @@ class ClassifierMnist(nn.Module):
                 break
 
     def save(self, directory: pathlib.Path) -> None:
-        """
-        Save a model and corresponding metadata.
+        """Save a model and corresponding metadata.
 
         Parameters:
         -----------
@@ -847,8 +844,7 @@ class VAE(nn.Module):
         loss_f: BaseVAELoss,
         name: str = "model",
     ):
-        """
-        Class which defines model and forward pass.
+        """Class which defines model and forward pass.
 
         Parameters:
         -----------
@@ -865,10 +861,10 @@ class VAE(nn.Module):
         self.name = name
 
     def reparameterize(self, mean, logvar):
-        """
-        Samples from a normal distribution using the reparameterization trick.
+        """Samples from a normal distribution using the reparameterization trick.
+
         Parameters:
-        ----------
+        -----------
         mean : torch.Tensor
             Mean of the normal distribution. Shape (batch_size, latent_dim)
         logvar : torch.Tensor
@@ -884,11 +880,10 @@ class VAE(nn.Module):
             return mean
 
     def forward(self, x):
-        """
-        Forward pass of model.
+        """Forward pass of model.
 
         Parameters:
-        ----------
+        -----------
         x : torch.Tensor
             Batch of data. Shape (batch_size, n_chan, height, width)
         """
@@ -898,8 +893,7 @@ class VAE(nn.Module):
         return reconstruct, latent_dist, latent_sample
 
     def sample_latent(self, x):
-        """
-        Returns a sample from the latent distribution.
+        """Returns a sample from the latent distribution.
 
         Parameters:
         -----------
@@ -990,8 +984,7 @@ class VAE(nn.Module):
                 break
 
     def save(self, directory: pathlib.Path) -> None:
-        """
-        Save a model and corresponding metadata.
+        """Save a model and corresponding metadata.
 
         Parameters:
         -----------
@@ -1201,12 +1194,12 @@ class SimCLR(nn.Module):
 
 
 def log_density_gaussian(x: torch.Tensor, mu: torch.Tensor, logvar: torch.Tensor):
-    """
-    Computes the log pdf of the Gaussian with parameters mu and logvar at x
-    :param x: (Tensor) Point at whichGaussian PDF is to be evaluated
-    :param mu: (Tensor) Mean of the Gaussian distribution
-    :param logvar: (Tensor) Log variance of the Gaussian distribution
-    :return:
+    """Computes the log pdf of the Gaussian with parameters mu and logvar at x
+
+    Parameters:
+        x: (Tensor) Point at whichGaussian PDF is to be evaluated
+        mu: (Tensor) Mean of the Gaussian distribution
+        logvar: (Tensor) Log variance of the Gaussian distribution
     """
     norm = -0.5 * (math.log(2 * math.pi) + logvar)
     log_density = norm - 0.5 * ((x - mu) ** 2 * torch.exp(-logvar))
