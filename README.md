@@ -117,30 +117,6 @@ where experiment_name can take the following values:
 
 The resulting plots and data are saved [here](results/ecg5000).
 
-### CIFAR10 experiments
-Run the following script
-```shell
-python -m cifar10
-```
-The experiment can be selected by changing the experiment_name
-parameter in [this file](simclr_config.yaml).
-The parameter can take the following values:
-
-| experiment_name      | description                                                                  |
-|----------------------|------------------------------------------------------------------------------|
-| consistency_features | Consistency check for label-free<br/> feature importance (paper Section 4.1) |
-| consistency_examples | Consistency check for label-free<br/> example importance (paper Section 4.1) |
-
-
-
-The resulting plots and data are saved [here](results/cifar10).
-### dSprites experiment
-Run the following script
-```shell
-python -m dsprites
-```
-The experiment needs several hours to run since several VAEs are trained.
-The resulting plots and data are saved [here](results/dsprites).
 ## 4. Citing
 
 If you use this code, please cite the associated paper:
